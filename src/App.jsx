@@ -278,11 +278,6 @@ function ProjectCard({ title, desc, tags, photo, gradient, link, github }) {
         ) : (
           <div className="relative z-10 text-gray-500 text-sm">No image</div>
         )}
-        <div className="absolute inset-0 bg-black/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center z-20">
-          <div className="text-center px-4">
-            <p className="text-gray-200 text-sm leading-relaxed">{desc}</p>
-          </div>
-        </div>
       </div>
       <div className="p-5">
         <div className="flex items-center justify-between mb-2">
@@ -344,7 +339,7 @@ function LoadingScreen() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        background: "linear-gradient(135deg, #fef9e6 0%, #fff5e6 25%, #fffaf0 50%, #fff0e0 75%, #fef3e0 100%)",
+        background: "white",
         fontFamily: "'Poppins', 'Segoe UI', 'Inter', sans-serif",
       }}
     >
@@ -618,6 +613,15 @@ export default function App() {
       gradient: "bg-gradient-to-br from-sky-700 to-sky-900",
       cat: "Frontend",
       github: "https://github.com/MVISHAL0123/TASK--MANAGEMENT-APP",
+    },
+    {
+      title: "Billing Software",
+      desc: "Automated billing system that generates accurate invoices and manages customer transactions seamlessly. Reduces errors and transforms manual billing into a 5-minute process.",
+      tags: ["JavaScript", "Invoice Management", "Automation"],
+      photo: "",
+      gradient: "bg-gradient-to-br from-sky-700 to-sky-900",
+      cat: "Full Stack",
+      github: "https://github.com/MVISHAL0123/Billing-Software",
     },
     {
       title: "Ecommerce Sales Analysis",
@@ -1661,10 +1665,10 @@ export default function App() {
         </div>
       </section>
 
-      {/* ── FOOTER (Dark) ── */}
-      <footer className="relative z-10 py-10 px-6 border-t border-gray-800 bg-gray-900/95 backdrop-blur-sm shadow-lg shadow-gray-900/50">
+      {/* ── FOOTER (Light) ── */}
+      <footer className="relative z-10 py-10 px-6 border-t border-gray-300 bg-white backdrop-blur-sm shadow-lg shadow-gray-300/50">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center gap-4">
-          <p className={`text-xs sm:text-sm text-gray-300`}>
+          <p className={`text-xs sm:text-sm text-gray-700`}>
             © 2025 Vishal M. All rights reserved.
           </p>
           <button
