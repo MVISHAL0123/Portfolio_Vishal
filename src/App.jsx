@@ -620,15 +620,6 @@ export default function App() {
       github: "https://github.com/MVISHAL0123/TASK--MANAGEMENT-APP",
     },
     {
-      title: "Billing Software",
-      desc: "Automated billing system that generates accurate invoices and manages customer transactions seamlessly. Reduces errors and transforms manual billing into a 5-minute process.",
-      tags: ["JavaScript", "Invoice Management", "Automation"],
-      photo: "",
-      gradient: "bg-gradient-to-br from-sky-700 to-sky-900",
-      cat: "Full Stack",
-      github: "https://github.com/MVISHAL0123/Billing-Software",
-    },
-    {
       title: "Ecommerce Sales Analysis",
       desc: "Comprehensive data analysis project identifying trends, patterns, and actionable business insights. Distills complex sales data into clear, visually compelling insights.",
       tags: ["SQL", "Power BI", "Data Visualization"],
