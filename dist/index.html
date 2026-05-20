@@ -1,18 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio - Vishal</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap"
-      rel="stylesheet"
-    />
-    <script type="module" crossorigin src="/assets/index-DcFdwFVg.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-BYGDHjHR.css">
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%230ea5e9' width='100' height='100'/><text x='50' y='60' font-size='60' font-weight='bold' text-anchor='middle' fill='white' font-family='Arial'>V</text></svg>" />
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio - Vishal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap"
+    rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: #080b14;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Loading Screen Styles */
+    #loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #0a0a2e, #080b14, #0d0221);
+      font-family: 'Poppins', sans-serif;
+      transition: opacity 0.8s ease, visibility 0.8s ease;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    #loading-screen.fade-out {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .loading-container {
+      text-align: center;
+    }
+
+    .loading-dots {
+      display: flex !important;
+      justify-content: center !important;
+      gap: 12px !important;
+      margin-bottom: 32px !important;
+    }
+
+    .loading-dots .dot {
+      width: 14px !important;
+      height: 14px !important;
+      min-width: 14px !important;
+      min-height: 14px !important;
+      background-color: #a855f7 !important;
+      border-radius: 50% !important;
+      display: block !important;
+      animation: bounce 1.4s infinite ease-in-out both !important;
+    }
+
+    .loading-dots .dot:nth-child(1) {
+      animation-delay: -0.32s !important;
+    }
+
+    .loading-dots .dot:nth-child(2) {
+      animation-delay: -0.16s !important;
+    }
+
+    @keyframes bounce {
+
+      0%,
+      80%,
+      100% {
+        opacity: 0.3;
+        transform: scale(1);
+      }
+
+      40% {
+        opacity: 1;
+        transform: scale(1.3);
+      }
+    }
+
+    .loading-title {
+      font-size: 1.875rem;
+      font-weight: 700;
+      background: linear-gradient(to right, #a855f7, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .loading-message {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+  </style>
+  <script type="module" crossorigin src="/assets/index-DEW172mf.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-Bvxn7yCE.css">
+<link rel="manifest" href="/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/registerSW.js"></script></head>
+
+<body>
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <div class="loading-container">
+      <div class="loading-dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div class="loading-title">Portfolio</div>
+      <p class="loading-message">Loading...</p>
+    </div>
+  </div>
+
+  <div id="root"></div>
+
+  <script>
+    // Handle loading screen - wait for React to mount, then fade out
+    (function () {
+      const loadingScreen = document.getElementById('loading-screen');
+      const root = document.getElementById('root');
+      let hidden = false;
+
+      function hideLoading() {
+        if (hidden) return;
+        hidden = true;
+        if (loadingScreen) {
+          loadingScreen.classList.add('fade-out');
+          setTimeout(() => {
+            loadingScreen.style.display = 'none';
+          }, 800);
+        }
+      }
+
+      // Watch for React to render content into #root
+      const observer = new MutationObserver(() => {
+        if (root.children.length > 0) {
+          observer.disconnect();
+          // Small delay to ensure React has fully rendered
+          setTimeout(hideLoading, 100);
+        }
+      });
+
+      observer.observe(root, { childList: true, subtree: true });
+
+      // Fallback: force hide after 5 seconds no matter what
+      setTimeout(() => {
+        observer.disconnect();
+        hideLoading();
+      }, 5000);
+    })();
+  </script>
+</body>
+
 </html>

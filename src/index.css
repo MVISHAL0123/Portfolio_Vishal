@@ -1,3 +1,4 @@
+/* index.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,9 +11,218 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
+  will-change: scroll-position;
+  -webkit-overflow-scrolling: touch;
+  scroll-padding-top: 5rem;
+  background-color: #faf9ff;
+}
+
+/* Smooth scroll acceleration for better responsiveness */
+html, body {
+  scroll-behavior: smooth;
+  overscroll-behavior-y: smooth;
+}
+
+/* Optimize scrollbar performance */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8b5cf6;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6d28d9;
+}
+
+/* Dotted Loading Animation */
+@keyframes dot-1 {
+  0%, 20% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50%, 100% {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+}
+
+@keyframes dot-2 {
+  0%, 20% {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+  35%, 85% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+}
+
+@keyframes dot-3 {
+  0%, 50% {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+  65%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeInPage {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Optimize touch scrolling on mobile */
+@media (hover: none) and (pointer: coarse) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  body {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+  }
+  
+  button, a {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+}
+
+/* Optimize sections for better scroll response */
+section {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Smooth transitions for better scroll perception */
+html {
+  scroll-timeline: auto;
+}
+
+/* Floating shape animation */
+@keyframes float-shape-1 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(30px, -20px) rotate(5deg); }
+  50% { transform: translate(-10px, 30px) rotate(-3deg); }
+  75% { transform: translate(20px, 15px) rotate(2deg); }
+}
+
+@keyframes float-shape-2 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(-25px, -15px) rotate(-4deg); }
+  66% { transform: translate(15px, -25px) rotate(3deg); }
+}
+
+@keyframes float-shape-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-20px, 20px) scale(1.1); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse-glow-dark {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3), inset 0 0 10px rgba(139, 92, 246, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(139, 92, 246, 0.5), inset 0 0 20px rgba(139, 92, 246, 0.2);
+  }
+}
+
+@keyframes border-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Dark card hover effects */
+.dark-card {
+  transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+.dark-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* Gradient text for dark elements */
+.gradient-text-dark {
+  background: linear-gradient(135deg, #c084fc, #a78bfa, #818cf8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Dark section title styling */
+.dark-section-title {
+  background: linear-gradient(135deg, #1e1b4b, #2e1065);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: none;
+}
+
+@layer utilities {
+  .animate-dot-1 {
+    animation: dot-1 1.4s ease-in-out infinite;
+  }
+  .animate-dot-2 {
+    animation: dot-2 1.4s ease-in-out infinite;
+  }
+  .animate-dot-3 {
+    animation: dot-3 1.4s ease-in-out infinite;
+  }
 }
